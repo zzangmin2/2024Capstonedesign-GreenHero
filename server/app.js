@@ -5,71 +5,15 @@ const path = require("path");
 const app = express();
 const { Sequelize, DataTypes } = require("sequelize");
 
+const sequelize = require("./config/database"); // sequelize 인스턴스
+const User = require("./models/User");
+const GameStatus = require("./models/GameStatus");
+const setAssociations = require("./models/associations");
+
 const PORT = process.env.PORT || 4000;
 app.use(express.json()); //json 바디를 처리하는 미들웨어
 
-/**
- * DB
- */
-const sequelize = new Sequelize({
-  dialect: "mysql",
-  host: process.env.DB_HOST,
-  port: 3306,
-  username: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: "test",
-});
-
-console.log(process.env.DB_HOST);
-const User = sequelize.define("User", {
-  no: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    autoIncrement: true,
-    primaryKey: true,
-  },
-  id: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-  },
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  password: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  coin: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    defaultValue: 0,
-  },
-});
-
-const GameStatus = sequelize.define("GameStatus", {
-  no: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    primaryKey: true,
-  },
-  waterGame: {
-    type: DataTypes.BOOLEAN,
-    allowNull: false,
-    defaultValue: false,
-  },
-  treeGame: {
-    type: DataTypes.BOOLEAN,
-    allowNull: false,
-    defaultValue: false,
-  },
-  lightGame: {
-    type: DataTypes.BOOLEAN,
-    allowNull: false,
-    defaultValue: false,
-  },
-});
+setAssociations();
 
 //외래키 설정
 User.hasOne(GameStatus);
@@ -83,30 +27,31 @@ const initDatabase = async () => {
     // await GameStatus.drop();
     // await User.drop();
 
-    await sequelize.sync({ force: true });
+    await sequelize.sync();
+    // await sequelize.sync({ force: true });
     // await GameStatus.sync({ force: true });
 
     // await User.sync();
     // await GameStatus.sync();
 
-    // await User.create(
-    //   {
-    //     no: 1,
-    //     id: "test1",
-    //     name: "테스트1",
-    //     password: "1234",
-    //     coin: 0,
-    //     GameStatus: {
-    //       no: 1,
-    //       waterGame: false,
-    //       treeGame: false,
-    //       lightGame: false,
-    //     },
-    //   },
-    //   {
-    //     include: [GameStatus],
-    //   }
-    // );
+    await User.create(
+      {
+        no: 1,
+        id: "test1",
+        name: "테스트1",
+        password: "1234",
+        coin: 0,
+        GameStatus: {
+          no: 1,
+          waterGame: false,
+          treeGame: false,
+          lightGame: false,
+        },
+      },
+      {
+        include: [GameStatus],
+      }
+    );
 
     await sequelize.sync();
 
@@ -250,9 +195,7 @@ app.get("/water", (req, res) => {
 });
 
 app.get("/tree", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "..", "public", "treeAndAnimals", "index.html")
-  );
+  res.sendFile(path.join(__dirname, "..", "public", "tree", "index.html"));
 });
 
 app.listen(PORT, () => {
