@@ -1,0 +1,158 @@
+@keyframes slideDown {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 25%;
+    z-index: 10000;
+    animation: slideDown 1s ease-in-out;
+  }
+
+body {
+    margin: 0;
+    overflow: hidden;
+    
+}
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+img {
+  position: absolute;
+  top: 0;
+  left: 25%;
+  z-index: 10000;
+  animation: slideDown 1s ease-in-out;
+}
+
+
+
+.cont{
+    /* background-image: url("./images/lightBg.svg"); */
+    /* background-size: cover;
+    /* overflow: hidden;  
+    
+    width: 1000px;
+    height: 1000px;*/
+    
+    position: relative;
+    
+    
+
+    transition: opacity 0.3s ease;
+}
+.bg{
+  background-color: rgb(233, 209, 165);
+  width: 100vw;
+  height: 100vh;
+  
+}
+.floor{
+  background-color: #b67641;
+  position: absolute;
+  
+  top: 650px;
+  width: 100vw;
+  height: 1000px;
+  
+}
+.window{
+    background-image: url("./images/window.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 400px;
+    width: 650px;
+    
+    
+    
+    position: absolute;
+    left: 350px;
+    top: 250px;
+    
+}
+.curtainRod{
+    background-image: url("./images/curtainRod.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 22px;
+    width: 730px;
+
+    position: absolute;
+    left: 310px;
+    top: 220px;
+}
+
+
+.resizable-div {
+  /*margin-left: 200px;
+  margin-top: 217px;*/
+  top: 217px;
+  left: 330px;
+  width: 330px;
+  height: 360px;
+  max-width: 630px; /* 최대 너비 설정 */
+  background-image: url(./images/curtain.svg);
+  border: 0px solid #000;
+  resize: both; /* 사용자가 크기 조절할 수 있도록 설정 */
+  overflow: auto; /* 내용이 div를 벗어날 때 스크롤바 표시 */
+  background-position : right;
+  position: relative;
+  z-index: 1;
+  background-size: contain;
+}
+
+
+.switch{
+  position: absolute;
+  left: 1050px;
+  top: 350px;
+}
+.opacity{
+  background-color: black;
+  position: relative;
+  width: 200vw;
+  height: 200vh;
+  opacity: 0;
+  top: -500px;
+  overflow: auto;
+  
+}
+
+
+#ball{
+  position: absolute;
+  /* display: flex; */
+  width: 60px;
+  height: 60px;
+  top: 650px;
+  left: 160px;
+ 
+  
+}
+
+#chair{
+  position: absolute;
+  
+  width: 160px;
+  height: 160px;
+  top: 600px;
+  left: 1000px;
+}
+
+

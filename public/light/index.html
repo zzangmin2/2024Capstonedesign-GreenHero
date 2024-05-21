@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        
+    </style>
+    <link rel="stylesheet" href="./style.css">
+    
+</head>
+<body>
+    <div class="cont" >
+        <div class="bg">
+            <div class="floor"></div>
+
+            <img src="./images/signpost.svg" alt="Image" class="name">
+            <img src="./images/x.svg" alt="to_back" style="left: 90%; top:8%">
+
+            <div class="resizable-div" id="resizableDiv" style="filter: brightness(1);">
+                <!-- 내용 -->
+            </div>
+            <div class="opacity"></div>
+            
+            <div class="curtainRod"></div>
+            <div id="ball" onclick="move_ball()" ><img src="./images/ball.svg" alt="축구공"></div>
+            <div id="chair" onclick="move_chair()"><img src="./images/movingChair.svg" alt="나무흔들의자"></div>
+            <div class="switch">
+                <img src="./images/button_on.svg" alt="">
+            </div>
+            <div class="window"></div>    
+        </div>
+    </div>
+    
+    <script src="./js.js"></script>
+</body>
+</html>
