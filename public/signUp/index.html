@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section>
+      <form id="signUpForm">
+        <div class="signup-title">
+          <span>회</span>
+          <span>원</span>
+          <span>가</span>
+          <span>입</span>
+        </div>
+        <div class="id-input-container">
+          <input type="text" name="id" placeholder="아이디" required />
+          <a href="">중복확인</a>
+        </div>
+        <input
+          type="password"
+          name="password"
+          placeholder="비밀번호"
+          required
+        />
+        <input type="text" name="name" placeholder="이름" required />
+        <button type="submit">회원가입</button>
+      </form>
+    </section>
+
+    <script>
+      const form = document.getElementById("loginForm");
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault(); // 기본 동작(페이지 새로고침) 방지
+
+        // 입력된 아이디와 비밀번호 가져오기
+        const id = document.getElementById("id").value;
+        const password = document.getElementById("password").value;
+
+        // 폼 데이터를 FormData 객체로 생성
+        const formData = {
+          id: id,
+          password: password,
+        };
+
+        // POST 요청을 보낼 URL
+        const url = "http://localhost:4000/login";
+
+        try {
+          // POST 요청 보내기
+          const response = await fetch(url, {
+            method: "POST",
+            body: formData,
+          });
+
+          // 응답 확인
+          if (response.ok) {
+            console.log("로그인 성공!");
+            // 로그인 성공 시 페이지 이동 등 추가 작업 수행
+          } else {
+            console.error("로그인 실패");
+            // 실패 시 적절한 처리
+          }
+        } catch (error) {
+          console.error("오류 발생", error);
+        }
+      });
+    </script>
+  </body>
+</html>

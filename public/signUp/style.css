@@ -1,0 +1,114 @@
+@font-face {
+  font-family: "TTLaundryGothicB";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/TTLaundryGothicB.woff2")
+    format("woff2");
+
+  font-style: normal;
+}
+
+body {
+  background-color: #e2f5df;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 800px;
+  height: 620px;
+
+  margin: 0 auto;
+  margin-top: 80px;
+  padding-top: 80px;
+  background-color: #fff;
+  border-radius: 180px;
+  box-sizing: border-box;
+}
+div.signup-title {
+  margin-bottom: 30px;
+}
+div.signup-title > span {
+  font-family: "TTLaundryGothicB";
+  font-size: 3rem;
+}
+
+div.signup-title > span:nth-child(1) {
+  color: #49c57b;
+}
+
+div.signup-title > span:nth-child(2) {
+  color: #ff4848;
+}
+
+div.signup-title > span:nth-child(3) {
+  color: #5283ff;
+}
+div.signup-title > span:nth-child(4) {
+  color: #ffbe18;
+}
+
+input {
+  display: block;
+  width: 520px;
+  padding: 20px;
+  font-size: 2rem;
+  border-radius: 20px;
+  background-color: #f8f8f8;
+  color: #422205;
+  font-family: "TTLaundryGothicB";
+  border: none;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+input::placeholder {
+  color: #c1c1c1;
+}
+input:focus {
+  outline: none;
+}
+
+.id-input-container {
+  display: flex;
+  justify-content: space-between;
+  width: 520px;
+}
+.id-input-container > input {
+  width: 340px;
+}
+.id-input-container > a {
+  width: 160px;
+  height: 80px;
+  text-decoration: none;
+  font-size: 2rem;
+  padding: 20px;
+  border-radius: 20px;
+  color: #5283ff;
+  font-family: "TTLaundryGothicB";
+  border: 2px solid #5283ff;
+  box-sizing: border-box;
+}
+
+form > button {
+  display: block;
+  margin: 0 auto;
+  padding: 20px;
+  width: 520px;
+  border-radius: 20px;
+  font-size: 2rem;
+  border: none;
+  color: #fff;
+  font-family: "TTLaundryGothicB";
+  background-color: #5283ff;
+  cursor: pointer;
+}
+
+.signup-button-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 320px;
+  margin-top: 20px;
+  font-family: "TTLaundryGothicB";
+  font-size: 1.5rem;
+  color: #422205;
+}

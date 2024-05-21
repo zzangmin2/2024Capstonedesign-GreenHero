@@ -1,0 +1,26 @@
+{
+  "name": "greenhero",
+  "version": "1.0.0",
+  "description": "[2024 캡스톤] 어린이를 위한 환경 보호 교육 웹서비스",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzangmin2/GreenHero.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zzangmin2/GreenHero/issues"
+  },
+  "homepage": "https://github.com/zzangmin2/GreenHero#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.9.7",
+    "sequelize": "^6.37.3",
+    "sqlite3": "^5.1.7"
+  }
+}

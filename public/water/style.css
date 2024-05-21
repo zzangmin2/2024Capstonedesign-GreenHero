@@ -1,0 +1,290 @@
+
+
+.surface-pro-812 .rectangle-14 {
+  background-image: url("waterImg/배경.svg");
+  width: 100%; 
+  height: 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+
+
+.container {
+  text-align: center;
+
+}
+s
+.wallpapers{
+  position: absolute;
+  width: 90%;
+  height: 85%;
+  top: 5%;
+  left: 5%;
+}
+.wallpapers img{
+  width: 6.9%;
+  padding-left: 1%;
+  padding-top: 1%;
+}
+
+
+/* 욕조 */
+.bathtub {
+  position: absolute;
+  width: 600px; 
+  height: 300px; 
+  bottom: 70px;
+  left: 80px;
+  display: flex;
+  align-items: flex-end; 
+}
+.bathtub .bathtub1 img  {
+  position: absolute; 
+  bottom: -30px;
+  width: 620px; 
+  height: 620px; 
+  
+}
+
+/* 샤워기 본체 */
+.shower-head {
+  position: absolute;
+  left: 6%; 
+  top: -49%; 
+  transform: translate(0, -50%); 
+  width: 10%; 
+  height: 20%; 
+}
+
+.shower-head img{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+/* 옥조 부품 */
+.bathtub2{
+  position: absolute;
+  width: 580px;
+  height: 105px;
+  left: 20px;
+  bottom: 180px;
+  border-radius: 25% 25% 50% 50%;
+  background-color: #BDDCDE;
+}
+
+/* 욕조 그림자 */
+.bathtubShadow{
+  position: absolute;
+  width: 650px;
+  height: 70px;
+  bottom: 10px;
+  border-radius: 25% 25% 50% 50%;
+  background-color: rgba(68, 66, 67, 0.452);
+}
+
+/* 욕조안 물 */
+.water {
+  position: absolute;
+  width: 581px;
+  height: 80px;
+  left: 20px;
+  bottom: 201px;
+  border-radius: 25% 25% 50% 50%;
+}
+
+/* 샤워기 물 */
+.drop {
+  position: absolute;
+  width: 5px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #B5F6FF;
+  opacity: 0.7;
+}
+
+/* 샤위 손잡이 */
+.handle {
+  position: absolute; 
+  top: 250px; 
+  left: 450px; 
+  width: 100px; 
+  height: 80px; 
+  margin: 0 auto; 
+  cursor: pointer;
+}
+.handle img{
+  position: absolute;
+  width: 80px;
+}
+/* 거울 */
+.mirror{
+  position: absolute;
+  right: 170px;
+  top: 100px;
+  width: 200px; 
+  height: 250px; 
+}
+
+.mirror img{
+  position: absolute;
+  width: 200px;
+  height: 300px;
+}
+
+/* 새면대 */
+.washstand{
+  position: absolute;
+  width: 250px; 
+  height: 250px; 
+  bottom: 50px;
+  right: 70px;
+  display: flex;
+  align-items: flex-end; 
+}
+
+.washstand .washstand1{
+  position: absolute;
+  width: 250px;
+  height: 250px;
+}
+
+.washstand .washstand1 img{
+  position: absolute;
+  width: 300px;
+  height: 290px;
+  bottom: 20px;
+}
+
+/* 새면대 부품 */
+.washstand .washstand2{
+  position: absolute;
+  width: 325px;
+  height: 335px;
+}
+
+/* 새면대 부품2 */
+.washstand .washstand2 img{
+  position: absolute;
+  width: 300px;
+  height: 325px;
+  bottom: 170px;
+}
+
+/* 새면대 부품3 */
+.washstand .washstand3{
+  position: absolute;
+  width: 270px;
+  height: 125px;
+  left: 15px;
+  bottom: 210px;
+  border-radius: 25% 25% 50% 50%;
+  background-color: #BDDCDE;
+}
+
+/* 새면대 그림자 */
+.washstandShadow{
+  position: absolute;
+  width: 300px;
+  height: 50px;
+  bottom: 10px;
+  left: 5px;
+  border-radius: 50% 50% 50% 50%;
+  background-color: rgba(68, 66, 67, 0.452);
+}
+
+/* 새면대 안 물 */
+.water2 {
+  position: absolute;
+  width: 280px;
+  height: 120px;
+  left: 10px;
+  bottom: 210px;
+  border-radius: 25% 25% 50% 50%;
+}
+
+/* 새면대 본채 */
+.washstand-head {
+  position: absolute;
+  left: 130px; 
+  top: -163px; 
+  width: 33px; 
+  height: 30px; 
+  background-color: #E1F3F3;
+  border-radius: 40% 40% 40% 40%;
+}
+
+/* 새면대 물 */
+.drop2 {
+  position: absolute;
+  width: 4px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #B5F6FF;
+  opacity: 0.7;
+}
+
+/* 새면대 손잡이 */
+.handle2 {
+  position: absolute; 
+  top: 250px; 
+  left: 700px; 
+  width: 100px; 
+  height: 80px; 
+  margin: 0 auto; 
+  cursor: pointer;
+}
+.handle2 img{
+  position: absolute;
+  width: 80px;
+}
+
+#missionClear{
+  position: fixed; /* 고정 위치 */
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명 검은색 배경 */
+  z-index: 10; /* 다른 요소들 위에 오도록 설정 */
+}
+
+#mission{
+  position: fixed;
+  display: none;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 100; /* 다른 요소들 위에 오도록 설정 */
+}
+
+#missionBtn{
+  position: fixed;
+  display: none;
+  top: 80%;
+  left: 50%;
+  width: 500px;
+  transform: translate(-50%);
+  z-index: 200; /* 다른 요소들 위에 오도록 설정 */
+} 
+
+.name img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 10000;
+  animation: slideDown 1s ease-in-out;
+  transform: translate(-50%)
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
