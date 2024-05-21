@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const path = require("path");
@@ -12,13 +13,14 @@ app.use(express.json()); //json 바디를 처리하는 미들웨어
  */
 const sequelize = new Sequelize({
   dialect: "mysql",
-  host: "127.0.0.1",
+  host: process.env.DB_HOST,
   port: 3306,
-  username: "root",
-  password: "Abcd1234!",
+  username: process.env.DB_USER,
+  password: process.env.DB_PASS,
   database: "test",
 });
 
+console.log(process.env.DB_HOST);
 const User = sequelize.define("User", {
   no: {
     type: DataTypes.INTEGER,
