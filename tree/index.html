@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Growing Tree</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  @keyframes slideDown {
+    
+    0% {
+      transform: translateY(-100%);
+      
+      opacity: 0;
+      
+    }
+    100% {
+      transform: translateY(0);
+      
+      opacity: 1;
+    }
+  }
+
+  .slideDownEffect {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    animation: slideDown 1s ease-in-out;
+  }
+
+  #missionClear {
+    position: fixed; /* 고정 위치 */
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 검은색 배경 */
+    z-index: 10; /* 다른 요소들 위에 오도록 설정 */
+  }
+
+  #mission {
+    position: fixed;
+    display: none;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    z-index: 10001; /* 다른 요소들 위에 오도록 설정 */
+  }
+
+  #missionBtn {
+    position: fixed;
+    display: none;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    z-index: 10000; /* 다른 요소들 위에 오도록 설정 */
+  } 
+</style>
+
+</head>
+<body>
+  
+  <img src="./images/name.svg" alt="Image" class="name topbar slideDownEffect">
+<img src="./images/x.svg" alt="to_back" style="left: 90%; top:8%" class="topbar slideDownEffect">
+
+  <div id="missionClear"></div>
+    <div class="mission" id="mission">
+      <img src="./images/111.svg" alt="클리어 화면" style="width: 500px;">
+    </div>
+    <div id="missionBtn">
+      <img src="./images/222.png" alt="클리어 버튼">
+    </div>
+  <div class="content" >
+    <canvas id="treeCanvas"></canvas>
+    <script src="js.js" type="module"></script>
+    <div id="clickCountOverlay">
+  <p id="clickCountText"></p>
+</div>
+<div id="messageOverlay" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(255, 255, 255, 0.8); padding: 20px; border-radius: 10px; font-size: 18px; text-align: center;"></div>
+ <div class="wrap"></div>
+
+  
+
+</body>
+</html>
