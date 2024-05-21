@@ -60,20 +60,26 @@
     
     z-index: 10000; /* 다른 요소들 위에 오도록 설정 */
   } 
+  #missionBtn:hover{
+    cursor: pointer;
+  }
+  .x:hover{
+    cursor: pointer;
+  }
 </style>
 
 </head>
 <body>
   
   <img src="./images/name.svg" alt="Image" class="name topbar slideDownEffect">
-<img src="./images/x.svg" alt="to_back" style="left: 90%; top:8%" class="topbar slideDownEffect">
+<img src="./images/x.svg" alt="to_back" style="left: 90%; top:8%" class="x topbar slideDownEffect" onclick="location.href='../main/index.html'">
 
   <div id="missionClear"></div>
     <div class="mission" id="mission">
       <img src="./images/111.svg" alt="클리어 화면" style="width: 500px;">
     </div>
     <div id="missionBtn">
-      <img src="./images/222.png" alt="클리어 버튼">
+      <img src="./images/222.png" alt="클리어 버튼" onclick="location.href='../main/index.html'">
     </div>
   <div class="content" >
     <canvas id="treeCanvas"></canvas>
