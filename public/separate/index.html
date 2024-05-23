@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Separate the trash</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="background">
+    <img src="./images/name.svg" alt="Image" class="name topbar slideDownEffect">
+<img src="./images/x.svg" alt="to_back" style="left: 90%; top:8%" class="x topbar slideDownEffect" onclick="location.href='../main/index.html'">
+
+    <div id="message"></div>
+    <div class="container trash-container">
+      <img src="./images/box.svg" class="trash-item" data-type="paper" alt="box">
+      <img src="./images/can.svg" class="trash-item" data-type="can" alt="can">
+      <img src="./images/lego.svg" class="trash-item" data-type="plastic" alt="lego">
+      <img src="./images/news_paper.svg" class="trash-item" data-type="paper" alt="news_paper">
+      <img src="./images/pet_bottle.svg" class="trash-item" data-type="plastic" alt="pet_bottle">
+
+    </div>
+
+    <div class="container bin-container">
+      <img src="./images/sp_can.svg" class="trash-bin" data-type="can" alt="can bin">
+      <img src="./images/sp_paper.svg" class="trash-bin" data-type="paper" alt="paper bin">
+      <img src="./images/sp_plastic.svg" class="trash-bin" data-type="plastic" alt="plastic bin">
+    </div>
+
+    <div id="success-overlay">
+      <img src="./images/complete.svg" class="success-image" id="success-image1" alt="Success">
+      
+      <img src="./images/gotomain.png" class="success-image" id="success-image2" alt="Success">
+    </div>
+  </div>
+  <script src="js.js"></script>
+</body>
+</html>
