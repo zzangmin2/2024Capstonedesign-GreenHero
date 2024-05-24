@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 
 //토큰 검증 미들웨어 함수
 const tokenAuthMiddleware = (req, res, next) => {

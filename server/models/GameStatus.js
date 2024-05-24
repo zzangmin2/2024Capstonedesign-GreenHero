@@ -2,10 +2,9 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
 const GameStatus = sequelize.define("GameStatus", {
-  no: {
-    type: DataTypes.INTEGER,
+  id: {
+    type: DataTypes.STRING,
     primaryKey: true,
-    autoIncrement: true,
   },
   waterGame: {
     type: DataTypes.BOOLEAN,
