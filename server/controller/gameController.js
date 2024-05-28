@@ -2,7 +2,7 @@ const User = require("../models/User");
 const GameStatus = require("../models/GameStatus");
 const jwt = require("jsonwebtoken");
 
-const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
+const SECRET_KEY = process.env.JWT_SECRET_KEY;
 
 const gameController = {
   //전체 회원의 게임 현황 조회
@@ -27,7 +27,7 @@ const gameController = {
 
     try {
       // JWT 디코딩
-      const decoded = jwt.verify(accessToken, JWT_SECRET_KEY);
+      const decoded = jwt.verify(accessToken, SECRET_KEY);
 
       // 사용자 찾기
       const user = await User.findOne({ where: { id: decoded.id } });
@@ -54,18 +54,25 @@ const gameController = {
       return res.status(400).json({ message: "Accesstoken이 없습니다." });
     }
 
+    const token = accessToken.split(" ")[1];
+    console.log(token);
+
     try {
       // JWT 디코딩
-      const decoded = jwt.verify(accessToken, JWT_SECRET_KEY);
+      const decoded = jwt.verify(token, SECRET_KEY);
 
+      console.log(decoded);
       // 회원 정보 가져오기
       const userId = decoded.id;
 
+      console.log(userId);
       // 해당 게임 상태를 업데이트
-      let updatedGameStatus = await GameStatus.findOne({ where: { userId } });
+      let updatedGameStatus = await GameStatus.findOne({ id: { userId } });
       if (!updatedGameStatus) {
         return console.log("오류발생오류발생아이디가없는오류");
       }
+
+      console.log(updatedGameStatus);
 
       // 해당 게임 상태를 true로 업데이트
       switch (gameName) {
