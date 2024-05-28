@@ -206,3 +206,52 @@ window.addEventListener("load", async () => {
     console.error("오류 발생:", error);
   }
 });
+
+
+// 모달
+document.addEventListener('DOMContentLoaded', () => {
+  const userInfoContainer = document.querySelector('.user-info-container');
+  const userModal = document.getElementById('userModal');
+
+  // 모달창을 토글하는 함수
+  function toggleModal() {
+    if (userModal.style.display === 'block') {
+      userModal.style.display = 'none';
+    } else {
+      // 모달의 가로 길이를 user-info-container의 가로 길이와 같게 설정
+      const containerWidth = userInfoContainer.offsetWidth;
+      userModal.style.width = `${containerWidth}px`;
+
+      userModal.style.display = 'block';
+      const rect = userInfoContainer.getBoundingClientRect();
+      userModal.style.top = `${rect.bottom}px`; // user-info-container의 하단에 위치
+      userModal.style.left = `${rect.left}px`; // 동일한 위치에 맞춤
+    }
+  }
+
+  // 사용자 정보 div 클릭 시 모달창 토글
+  userInfoContainer.addEventListener('click', (event) => {
+    event.stopPropagation();
+    toggleModal();
+  });
+
+  // 모달창 외부를 클릭했을 때 모달창 숨김
+  document.addEventListener('click', (event) => {
+    if (userModal.style.display === 'block' && !userInfoContainer.contains(event.target) && !userModal.contains(event.target)) {
+      userModal.style.display = 'none';
+    }
+  });
+
+  // '마이페이지' 버튼 클릭 이벤트 처리
+  document.getElementById('myPageBtn').addEventListener('click', () => {
+    // window.location.href = '/mypage'; // 마이페이지로 이동
+    alert("마이페이지는 구현 준비 중입니다!")
+  });
+
+  // '로그아웃' 버튼 클릭 이벤트 처리
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    // 로그아웃 로직 처리
+    localStorage.removeItem('accessToken'); // 예시로 localStorage에서 토큰 삭제
+    window.location.href = '/login'; // 로그인 페이지로 이동
+  });
+});
