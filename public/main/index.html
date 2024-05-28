@@ -17,28 +17,40 @@
       href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
     />
     <!-- 내 css -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/main/style.css" />
   </head>
   <body>
     <div id="app"></div>
     <!-- 배경이미지 -->
     <div class="bg-wrapper">
-      <img class="bg" class="overlay" src="images/bg.svg" alt="" />
+      <img
+        class="bg"
+        class="overlay"
+        src="/main/images/bg.svg"
+        alt="배경 이미지"
+      />
+    </div>
+    <!-- 회원 정보 -->
+    <div class="user-info-container">
+      <div class="user-info-coin-wrapper">
+        <img src="/main/images/coin.png" alt="코인 이미지" />
+        <div id="userCoin"></div>
+      </div>
+      <div id="userName"></div>
     </div>
     <!-- 타이틀 -->
     <p class="subtitle">우리는 환경을 지키는</p>
-    <img class="logo" src="images/logo.png" alt="" />
-
+    <img class="logo" src="/main/images/logo.png" alt="" />
     <!-- 이미지 슬라이드 -->
     <ul class="thumnail-wrap">
       <li class="thumnail">
-        <img src="images/thumnailTrash.png" alt="" />
+        <img src="/main/images/thumnailTrash.png" alt="" />
         <p>쓰레기를 올바르게 버려요!</p>
       </li>
       <li class="thumnail-link">
         <img
           id="waterImage"
-          src="images/thumnailWater.png"
+          src="/main/images/thumnailWater.png"
           alt=""
           onclick="location.href='../water/index.html'"
         />
@@ -47,7 +59,7 @@
       <li class="thumnail-link">
         <img
           id="treeImage"
-          src="images/thumnailTreeAndAnimals.png"
+          src="/main/images/thumnailTreeAndAnimals.png"
           alt=""
           onclick="location.href='../tree/index.html'"
         />
@@ -56,7 +68,7 @@
       <li class="thumnail-link">
         <img
           id="lightImage"
-          src="images/thumnailLight.png"
+          src="/main/images/thumnailLight.png"
           alt=""
           onclick="location.href='../light/index.html'"
         />
@@ -64,14 +76,14 @@
       </li>
 
       <li class="thumnail">
-        <img src="images/thumnailFlower.png" alt="" />
+        <img src="/main/images/thumnailFlower.png" alt="" />
         <p>꽃이 다시 피어나도록 도와주세요!</p>
       </li>
     </ul>
 
-    <img class="btn prev-btn" src="images/prevBtn.svg" alt="" />
+    <img class="btn prev-btn" src="/main/images/prevBtn.svg" alt="" />
 
-    <img class="btn next-btn" src="images/nextBtn.svg" alt="" />
+    <img class="btn next-btn" src="/main/images/nextBtn.svg" alt="" />
 
     <!-- 사용자 정의 스크립트 -->
     <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -86,7 +98,7 @@
         });
       });
     </script>
-    <script src="js.js"></script>
+    <script src="/main/js.js"></script>
     <div id="overlay"></div>
     <div id="contentArea"></div>
   </body>

@@ -1,4 +1,4 @@
-const water = document.querySelector("");
+// const water = document.querySelector("");
 
 // function treeMake() {
 //   // 이미지 요소를 선택
@@ -167,3 +167,43 @@ const water = document.querySelector("");
 //     })
 //     .catch((error) => console.error("Error loading the HTML content:", error));
 // }
+
+// JavaScript 코드
+
+document.addEventListener("DOMContentLoaded", async () => {
+  // localStorage에서 accessToken 가져오기
+  const accessToken = localStorage.getItem("accessToken");
+  console.log(accessToken);
+
+  if (!accessToken) {
+    console.error("accessToken이 없습니다.");
+    return;
+  }
+
+  try {
+    // 사용자 정보 요청
+    const response = await fetch("user/getUserInfo", {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + accessToken,
+      },
+    });
+
+    console.log(response);
+
+    if (response.ok) {
+      const data = await response.json();
+
+      // UI 업데이트
+      const userCoinElement = document.getElementById("userCoin");
+      const userNameElement = document.getElementById("userName");
+
+      userCoinElement.textContent = data.coin;
+      userNameElement.textContent = data.name;
+    } else {
+      console.error("사용자 정보를 가져오는 데 실패했습니다.");
+    }
+  } catch (error) {
+    console.error("오류 발생:", error);
+  }
+});
