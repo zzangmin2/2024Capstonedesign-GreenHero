@@ -364,6 +364,30 @@ if (tree.clickCount >= 15) {
   //  desiredImage1.style.width = '300px';
 
   //  document.body.appendChild(desiredImage1);
+  // 게임 성공 시 서버에 상태 업데이트 요청
+  const accessToken = localStorage.getItem('accessToken'); // 또는 적절한 저장소에서 토큰을 가져옵니다.
+
+  fetch('../game/updateUserGameStatus', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${accessToken}` // Authorization 헤더에 토큰 추가
+      },
+      body: JSON.stringify({ gameName: 'treeGame' })
+  })
+  .then(response => response.json())
+  .then(data => {
+      if (data.message === '게임 상태 저장 성공') {
+        console.log("treeGame complete")
+          // 게임 상태 업데이트 성공 시 메인 페이지로 리다이렉트
+          window.location.href = 'index.html'; // 메인 페이지 URL로 변경
+      } else {
+          console.error('게임 상태 업데이트 실패:', data.message);
+      }
+  })
+  .catch(error => {
+      console.error('서버 오류:', error);
+  });
 }
 
 
