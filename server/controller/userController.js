@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 /**
  * jwt(로그인)
  */
-const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
+const SECRET_KEY = process.env.JWT_SECRET_KEY;
 
 const userController = {
   //회원조회
@@ -69,26 +69,27 @@ const userController = {
       (user) => user.id === id && user.password === password
     );
     if (user) {
-      const accessToken = jwt.sign({ id: user.id }, JWT_SECRET_KEY, {
+      const accessToken = jwt.sign({ id: user.id }, SECRET_KEY, {
         expiresIn: "3h",
       });
-      res.json({ accessToken });
+      res.status(200).json({ accessToken });
     } else {
       res.status(401).send("로그인 실패");
     }
   },
-  // [메인 화면] 현재 접속 사용자의 이름 및 코인 조회
+  // [메인 화면] 현재 접속 사용자의 이름, 코인 조회
   getUserInfo: async (req, res) => {
-    //header의 accesstoken 가져오기
-    const accessToken = req.headers.authorization;
+    const authHeader = req.headers["authorization"];
+    const token = authHeader.split(" ")[1];
+    console.log(token);
 
-    if (!accessToken) {
+    if (!authHeader || !token) {
       return res.status(400).json({ message: "Accesstoken이 없습니다." });
     }
 
     try {
       // JWT 디코딩
-      const decoded = jwt.verify(accessToken, JWT_SECRET_KEY);
+      const decoded = jwt.verify(token, SECRET_KEY);
       const user = await User.findOne({ where: { id: decoded.id } });
       if (!user) {
         return res.status(404).json({ message: "사용자를 찾을 수 없습니다." });

@@ -25,6 +25,11 @@
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
-    "@faker-js/faker": "^8.4.1"
+    "@faker-js/faker": "^8.4.1",
+    "nodemon": "^3.1.1"
+  },
+  "scripts": {
+    "start": "node server/app.js",
+    "nodemon": "nodemon server/app.js"
   }
 }
