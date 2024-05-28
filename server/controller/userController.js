@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const GameStatus = require("../models/GameStatus");
 const jwt = require("jsonwebtoken");
+const { blacklistedTokens } = require("../middleware/tokenAuthMiddleware");
 
 /**
  * jwt(로그인)
@@ -76,6 +77,18 @@ const userController = {
     } else {
       res.status(401).send("로그인 실패");
     }
+  },
+  //로그아웃
+  logOut: async (req, res) => {
+    const authHeader = req.headers["authorization"];
+    const token = authHeader.split(" ")[1];
+
+    if (!authHeader || !token) {
+      return res.status(403).send("비정상 접근입니다.");
+    }
+
+    blacklistedTokens.add(token);
+    res.status(200).json({ message: "로그아웃 성공" });
   },
   // [메인 화면] 현재 접속 사용자의 이름, 코인 조회
   getUserInfo: async (req, res) => {
