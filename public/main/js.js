@@ -169,8 +169,7 @@
 // }
 
 // JavaScript 코드
-
-document.addEventListener("DOMContentLoaded", async () => {
+window.addEventListener("load", async () => {
   // localStorage에서 accessToken 가져오기
   const accessToken = localStorage.getItem("accessToken");
   console.log(accessToken);
@@ -182,7 +181,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     // 사용자 정보 요청
-    const response = await fetch("user/getUserInfo", {
+    const response = await fetch("http://localhost:4000/user/getUserInfo", {
       method: "GET",
       headers: {
         Authorization: "Bearer " + accessToken,
