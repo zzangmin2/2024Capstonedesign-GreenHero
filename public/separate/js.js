@@ -9,9 +9,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function checkCompletion() {
     if (correctCount === totalTrash) {
-      successOverlay.style.display = 'flex';
-      successImage1.style.display = 'flex';
-      successImage2.style.display = 'flex';
+        successOverlay.style.display = 'flex';
+        successImage1.style.display = 'flex';
+        successImage2.style.display = 'flex';
+
+        // 게임 성공 시 서버에 상태 업데이트 요청
+        const accessToken = localStorage.getItem('accessToken'); // 또는 적절한 저장소에서 토큰을 가져옵니다.
+
+        fetch('../game/updateUserGameStatus', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${accessToken}` // Authorization 헤더에 토큰 추가
+            },
+            body: JSON.stringify({ gameName: 'trashGame' })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message === '게임 상태 저장 성공') {
+              console.log("trashGame complete")
+                // 게임 상태 업데이트 성공 시 메인 페이지로 리다이렉트
+                window.location.href = 'index.html'; // 메인 페이지 URL로 변경
+            } else {
+                console.error('게임 상태 업데이트 실패:', data.message);
+            }
+        })
+        .catch(error => {
+            console.error('서버 오류:', error);
+        });
     }
   }
 
@@ -41,7 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
           showMessage('올바른 분리수거입니다!', true);
           selectedTrash.remove();
           correctCount++;
-          checkCompletion();
+          if (correctCount === totalTrash) { // 모든 쓰레기가 분리수거 완료되었을 때만 checkCompletion 호출
+            checkCompletion();
+          }
         } else {
           showMessage('잘못된 분리수거입니다. 다시 시도하세요.', false);
         }

@@ -113,3 +113,11 @@ body{
   z-index: 10000;
   animation: slideDown 1s ease-in-out;
 }
+
+#success-image2:hover{
+  cursor: pointer;
+}
+
+.x:hover{
+  cursor: pointer;
+}

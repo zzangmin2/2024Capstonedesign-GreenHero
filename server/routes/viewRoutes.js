@@ -38,4 +38,10 @@ router.get("/tree", (req, res) => {
   );
 });
 
+router.get("/separate", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "..", "..", "public", "separate", "index.html")
+  );
+});
+
 module.exports = router;
