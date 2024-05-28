@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const userController = require("../controller/userController");
-const tokenAuthMiddleware = require("../middleware/tokenAuthMiddleware");
+const userController = require("../controller/userController");
+const tokenAuthMiddleware = require("../middleware/tokenAuthMiddleware");
 
 // 회원 전체 조회
 router.get("/", userController.user);
