@@ -213,6 +213,29 @@ function checkMissionStatus() {
     missionBtn.style.display = "block";
     mission.style.display = "block";
     missionClear.style.display = "block";
+
+    const accessToken = localStorage.getItem('accessToken'); // 또는 적절한 저장소에서 토큰을 가져옵니다.
+    fetch('../game/updateUserGameStatus', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${accessToken}` // Authorization 헤더에 토큰 추가
+      },
+      body: JSON.stringify({ gameName: 'trashGame' })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.message === '게임 상태 저장 성공') {
+        console.log("trashGame complete")
+        // 게임 상태 업데이트 성공 시 메인 페이지로 리다이렉트
+        window.location.href = 'index.html'; // 메인 페이지 URL로 변경
+      } else {
+        console.error('게임 상태 업데이트 실패:', data.message);
+      }
+    })
+    .catch(error => {
+      console.error('서버 오류:', error);
+    });
   } else {
     console.log("하나 이상의 요소가 존재하지 않습니다.");
   }
