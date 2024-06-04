@@ -2,7 +2,6 @@
   font-family: "TTLaundryGothicB";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/TTLaundryGothicB.woff2")
     format("woff2");
-
   font-style: normal;
 }
 
@@ -16,7 +15,6 @@ section {
   align-items: center;
   width: 800px;
   height: 620px;
-
   margin: 0 auto;
   margin-top: 80px;
   padding-top: 80px;
@@ -24,9 +22,11 @@ section {
   border-radius: 180px;
   box-sizing: border-box;
 }
+
 div.signup-title {
   margin-bottom: 30px;
 }
+
 div.signup-title > span {
   font-family: "TTLaundryGothicB";
   font-size: 3rem;
@@ -43,6 +43,7 @@ div.signup-title > span:nth-child(2) {
 div.signup-title > span:nth-child(3) {
   color: #5283ff;
 }
+
 div.signup-title > span:nth-child(4) {
   color: #ffbe18;
 }
@@ -60,9 +61,11 @@ input {
   margin-bottom: 20px;
   box-sizing: border-box;
 }
+
 input::placeholder {
   color: #c1c1c1;
 }
+
 input:focus {
   outline: none;
 }
@@ -72,9 +75,11 @@ input:focus {
   justify-content: space-between;
   width: 520px;
 }
+
 .id-input-container > input {
   width: 340px;
 }
+
 .id-input-container > a {
   width: 160px;
   height: 80px;
@@ -100,6 +105,12 @@ form > button {
   font-family: "TTLaundryGothicB";
   background-color: #5283ff;
   cursor: pointer;
+}
+
+/* 비활성화 상태 스타일 */
+form > button:disabled {
+  background-color: #c1c1c1;
+  cursor: not-allowed;
 }
 
 .signup-button-wrap {
