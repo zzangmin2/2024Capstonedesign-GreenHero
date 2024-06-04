@@ -48,26 +48,24 @@ const gameController = {
   // 게임 성공 시 해당 게임 상태 변경
   updateUserGameStatus: async (req, res) => {
     const { gameName } = req.body;
-    const accessToken = req.headers.authorization;
-
-    if (!accessToken) {
-      return res.status(400).json({ message: "Accesstoken이 없습니다." });
-    }
-
-    const token = accessToken.split(" ")[1];
-    console.log(token);
 
     try {
-      // JWT 디코딩
-      const decoded = jwt.verify(token, SECRET_KEY);
+      const userId = req.user.id;
+      console.log(userId);
 
-      console.log(decoded);
-      // 회원 정보 가져오기
-      const userId = decoded.id;
+      // 사용자 찾기
+      const user = await User.findOne({ where: { id: userId } });
+
+      console.log(user);
+      // 코인 숫자 증가
+      user.coin += 1;
+      await user.save();
 
       console.log(userId);
       // 해당 게임 상태를 업데이트
-      let updatedGameStatus = await GameStatus.findOne({ id: { userId } });
+      let updatedGameStatus = await GameStatus.findOne({
+        where: { id: userId },
+      });
       if (!updatedGameStatus) {
         return console.log("오류발생오류발생아이디가없는오류");
       }
@@ -99,6 +97,31 @@ const gameController = {
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: "Internal server error" });
+    }
+  },
+
+  getUserGameInfo: async (req, res) => {
+    const accessToken = req.headers.authorization;
+
+    if (!accessToken) {
+      return res.status(400).json({ message: "Accesstoken이 없습니다." });
+    }
+    const token = accessToken.split(" ")[1];
+
+    try {
+      // JWT 디코딩
+      const decoded = jwt.verify(token, SECRET_KEY);
+      const gameStatus = await GameStatus.findOne({
+        where: { id: decoded.id },
+      });
+      if (!gameStatus) {
+        return res.status(404).json({ message: "사용자를 찾을 수 없습니다." });
+      }
+
+      res.json(gameStatus);
+    } catch (error) {
+      console.error("사용자 정보 조회 실패:", error);
+      res.status(500).json({ message: "사용자 정보 조회에 실패했습니다." });
     }
   },
 };

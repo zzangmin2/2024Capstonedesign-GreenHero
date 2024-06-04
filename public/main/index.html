@@ -30,31 +30,38 @@
         alt="배경 이미지"
       />
     </div>
-          <!-- 회원 정보 -->
-  <div class="user-info-container">
-    <div class="user-info-coin-wrapper">
-      <img src="/main/images/coin.png" alt="코인 이미지" />
-      <div id="userCoin"></div>
+    <!-- 회원 정보 -->
+    <div class="user-info-container">
+      <div class="user-info-coin-wrapper">
+        <img src="/main/images/coin.png" alt="코인 이미지" />
+        <div id="userCoin"></div>
+      </div>
+      <div id="userName"></div>
     </div>
-    <div id="userName"></div>
-  </div>
 
-  <!-- 모달창 -->
-  <div id="userModal" class="modal">
-    <div class="modal-content">
-      <button id="myPageBtn">마이페이지</button>
-      <button id="logoutBtn" >로그아웃</button>
+    <!-- 모달창 -->
+    <div id="userModal" class="modal">
+      <div class="modal-content">
+        <button id="myPageBtn">마이페이지</button>
+        <button id="logoutBtn">로그아웃</button>
+      </div>
     </div>
-  </div>
     <!-- 타이틀 -->
     <p class="subtitle">우리는 환경을 지키는</p>
     <img class="logo" src="/main/images/logo.png" alt="" />
     <!-- 이미지 슬라이드 -->
     <ul class="thumnail-wrap">
       <li class="thumnail">
-        <img src="/main/images/thumnailTrash.png" alt="" 
-        onclick="location.href='../separate/index.html'"
+        <img
+          id="trashImage"
+          src="/main/images/thumnailTrash.png"
+          alt=""
+          onclick="location.href='../separate/index.html'"
         />
+        <span class="success-tag"
+          >성공한<br />
+          게임!</span
+        >
         <p>쓰레기를 올바르게 버려요!</p>
       </li>
       <li class="thumnail-link">
@@ -64,6 +71,10 @@
           alt=""
           onclick="location.href='../water/index.html'"
         />
+        <span class="success-tag"
+          >성공한<br />
+          게임!</span
+        >
         <p>앗! 물이 낭비되고 있어요!</p>
       </li>
       <li class="thumnail-link">
@@ -73,6 +84,10 @@
           alt=""
           onclick="location.href='../tree/index.html'"
         />
+        <span class="success-tag"
+          >성공한<br />
+          게임!</span
+        >
         <p>나무가 자라고 동물들을 찾아요</p>
       </li>
       <li class="thumnail-link">
@@ -82,11 +97,19 @@
           alt=""
           onclick="location.href='../light/index.html'"
         />
+        <span class="success-tag"
+          >성공한<br />
+          게임!</span
+        >
         <p>불을 꺼서 전기를 아껴요!</p>
       </li>
 
       <li class="thumnail">
         <img src="/main/images/thumnailFlower.png" alt="" />
+        <span class="success-tag"
+          >성공한<br />
+          게임!</span
+        >
         <p>꽃이 다시 피어나도록 도와주세요!</p>
       </li>
     </ul>

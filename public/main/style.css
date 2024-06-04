@@ -97,6 +97,7 @@ ul.thumnail-wrap {
 
 li.thumnail,
 li.thumnail-link {
+  position: relative;
   width: 336px;
   margin-right: 10px;
   list-style: none;
@@ -106,6 +107,26 @@ li.thumnail-link {
 li.thumnail > img,
 li.thumnail-link > img {
   width: 336px;
+}
+
+.success-tag {
+  position: absolute;
+  top: 40%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 32px;
+  font-family: "TTLaundryGothicB", sans-serif;
+  text-align: center;
+
+  display: none;
+}
+
+.success-game {
+  display: block;
 }
 
 li.thumnail > p,

@@ -92,13 +92,12 @@ const userController = {
   },
   // [메인 화면] 현재 접속 사용자의 이름, 코인 조회
   getUserInfo: async (req, res) => {
-    const authHeader = req.headers["authorization"];
-    const token = authHeader.split(" ")[1];
-    console.log(token);
+    const accessToken = req.headers.authorization;
 
-    if (!authHeader || !token) {
+    if (!accessToken) {
       return res.status(400).json({ message: "Accesstoken이 없습니다." });
     }
+    const token = accessToken.split(" ")[1];
 
     try {
       // JWT 디코딩
