@@ -221,12 +221,12 @@ function checkMissionStatus() {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${accessToken}` // Authorization 헤더에 토큰 추가
       },
-      body: JSON.stringify({ gameName: 'trashGame' })
+      body: JSON.stringify({ gameName: 'waterGame' })
     })
     .then(response => response.json())
     .then(data => {
       if (data.message === '게임 상태 저장 성공') {
-        console.log("trashGame complete")
+        console.log("waterGame complete")
         // 게임 상태 업데이트 성공 시 메인 페이지로 리다이렉트
         window.location.href = 'index.html'; // 메인 페이지 URL로 변경
       } else {
