@@ -168,6 +168,29 @@
 //     .catch((error) => console.error("Error loading the HTML content:", error));
 // }
 
+//성공한 게임 표시
+function updateThumbnails(data) {
+  const gameMapping = [
+    { gameKey: "trashGame", elementId: "trashImage" },
+    { gameKey: "waterGame", elementId: "waterImage" },
+    { gameKey: "treeGame", elementId: "treeImage" },
+    { gameKey: "lightGame", elementId: "lightImage" },
+  ];
+
+  gameMapping.forEach(({ gameKey, elementId }) => {
+    if (data[gameKey]) {
+      const element = document.getElementById(elementId);
+      if (element) {
+        const parentElement = element.parentElement;
+        const spanElement = parentElement.querySelector(".success-tag");
+        if (spanElement) {
+          spanElement.classList.add("success-game");
+        }
+      }
+    }
+  });
+}
+
 // JavaScript 코드
 window.addEventListener("load", async () => {
   // localStorage에서 accessToken 가져오기
@@ -179,8 +202,8 @@ window.addEventListener("load", async () => {
     return;
   }
 
+  // 사용자 정보 요청
   try {
-    // 사용자 정보 요청
     const response = await fetch("http://localhost:4000/user/getUserInfo", {
       method: "GET",
       headers: {
@@ -192,6 +215,8 @@ window.addEventListener("load", async () => {
 
     if (response.ok) {
       const data = await response.json();
+
+      console.log(data);
 
       // UI 업데이트
       const userCoinElement = document.getElementById("userCoin");
@@ -205,24 +230,52 @@ window.addEventListener("load", async () => {
   } catch (error) {
     console.error("오류 발생:", error);
   }
+
+  // 사용자 게임 정보 요청
+  try {
+    const response = await fetch("http://localhost:4000/game/getUserGameInfo", {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + accessToken,
+      },
+    });
+
+    console.log(response);
+
+    if (response.ok) {
+      const data = await response.json();
+
+      console.log(data);
+
+      updateThumbnails(data);
+
+      //   // UI 업데이트
+      //   const userCoinElement = document.getElementById("userCoin");
+      //   const userNameElement = document.getElementById("userName");
+
+      //   userCoinElement.textContent = data.coin;
+      //   userNameElement.textContent = data.name;
+    } else {
+      console.error("사용자 정보를 가져오는 데 실패했습니다.");
+    }
+  } catch (errror) {}
 });
 
-
 // 모달
-document.addEventListener('DOMContentLoaded', () => {
-  const userInfoContainer = document.querySelector('.user-info-container');
-  const userModal = document.getElementById('userModal');
+document.addEventListener("DOMContentLoaded", () => {
+  const userInfoContainer = document.querySelector(".user-info-container");
+  const userModal = document.getElementById("userModal");
 
   // 모달창을 토글하는 함수
   function toggleModal() {
-    if (userModal.style.display === 'block') {
-      userModal.style.display = 'none';
+    if (userModal.style.display === "block") {
+      userModal.style.display = "none";
     } else {
       // 모달의 가로 길이를 user-info-container의 가로 길이와 같게 설정
       const containerWidth = userInfoContainer.offsetWidth;
       userModal.style.width = `${containerWidth}px`;
 
-      userModal.style.display = 'block';
+      userModal.style.display = "block";
       const rect = userInfoContainer.getBoundingClientRect();
       userModal.style.top = `${rect.bottom}px`; // user-info-container의 하단에 위치
       userModal.style.left = `${rect.left}px`; // 동일한 위치에 맞춤
@@ -230,28 +283,57 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 사용자 정보 div 클릭 시 모달창 토글
-  userInfoContainer.addEventListener('click', (event) => {
+  userInfoContainer.addEventListener("click", (event) => {
     event.stopPropagation();
     toggleModal();
   });
 
   // 모달창 외부를 클릭했을 때 모달창 숨김
-  document.addEventListener('click', (event) => {
-    if (userModal.style.display === 'block' && !userInfoContainer.contains(event.target) && !userModal.contains(event.target)) {
-      userModal.style.display = 'none';
+  document.addEventListener("click", (event) => {
+    if (
+      userModal.style.display === "block" &&
+      !userInfoContainer.contains(event.target) &&
+      !userModal.contains(event.target)
+    ) {
+      userModal.style.display = "none";
     }
   });
 
   // '마이페이지' 버튼 클릭 이벤트 처리
-  document.getElementById('myPageBtn').addEventListener('click', () => {
+  document.getElementById("myPageBtn").addEventListener("click", () => {
     // window.location.href = '/mypage'; // 마이페이지로 이동
-    alert("마이페이지는 구현 준비 중입니다!")
+    alert("마이페이지는 구현 준비 중입니다!");
   });
 
   // '로그아웃' 버튼 클릭 이벤트 처리
-  document.getElementById('logoutBtn').addEventListener('click', () => {
-    // 로그아웃 로직 처리
-    localStorage.removeItem('accessToken'); // 예시로 localStorage에서 토큰 삭제
-    window.location.href = '/login'; // 로그인 페이지로 이동
+  document.getElementById("logoutBtn").addEventListener("click", async () => {
+    const accessToken = localStorage.getItem("accessToken");
+
+    if (!accessToken) {
+      alert("이미 로그아웃 상태입니다.");
+      window.location.href = "/login";
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:4000/user/logout", {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + accessToken,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data.message);
+
+        localStorage.removeItem("accessToken");
+        window.location.href = "/login";
+      } else {
+        console.error("로그아웃 실패:", response.statusText);
+      }
+    } catch (error) {
+      console.error("로그아웃 중 오류 발생:", error);
+    }
   });
 });

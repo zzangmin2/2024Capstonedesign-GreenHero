@@ -6,8 +6,12 @@ const { tokenAuthMiddleware } = require("../middleware/tokenAuthMiddleware");
 //전체 회원의 게임 현황 조회
 router.get("/gamestatus", gameController.gameStatus);
 
-//게임 성공 시 코인 숫자 증가
-router.post("/updatecoincount", gameController.updateCoinCount);
+//해당 회원의 게임 현황 조회
+router.get(
+  "/getUserGameInfo",
+  tokenAuthMiddleware,
+  gameController.getUserGameInfo
+);
 
 //게임 성공 시 유저 해당 게임 상태 변경
 /**
