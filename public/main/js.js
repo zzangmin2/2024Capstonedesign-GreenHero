@@ -1,173 +1,3 @@
-// const water = document.querySelector("");
-
-// function treeMake() {
-//   // 이미지 요소를 선택
-//   var treeImage = document.getElementById("treeImage");
-
-//   // 이미지를 body의 직계 자식으로 이동
-//   document.body.appendChild(treeImage);
-
-//   // GSAP 애니메이션 실행
-//   gsap.to("#treeImage", {
-//     duration: 1, // 1초 동안 애니메이션
-//     width: "90vw", // 이미지 너비를 화면 너비의 90%로 설정
-//     top: "50%", // 상단에서 50% 위치
-//     left: "50%", // 왼쪽에서 50% 위치
-//     xPercent: -50, // x축 기준 -50% 만큼 이동하여 중앙 정렬
-//     yPercent: -50, // y축 기준 -50% 만큼 이동하여 중앙 정렬
-//     position: "fixed", // 고정된 위치
-//     ease: "power1.out", // 부드러운 움직임을 위한 이징 함수
-//     onComplete: function () {
-//       const treeImage = document.getElementById("treeImage");
-//       treeImage.style.display = "none"; // treeImage를 안 보이게 설정
-
-//       const overlay = document.getElementById("overlay");
-//       overlay.style.display = "block"; // 오버레이 표시
-
-//       treeLoadAndExecuteScripts(); // 그 후 HTML 내용을 로드
-//     },
-//   });
-// }
-
-// function treeLoadAndExecuteScripts() {
-//   fetch("index2.html")
-//     .then((response) => response.text())
-//     .then((html) => {
-//       const contentArea = document.getElementById("contentArea");
-//       contentArea.innerHTML = html;
-//       contentArea.style.display = "block"; // 내용을 불러온 후 보이도록 설정
-
-//       // 스크립트 태그 찾기
-//       const scripts = contentArea.querySelectorAll("script");
-//       scripts.forEach((script) => {
-//         const newScript = document.createElement("script");
-
-//         if (script.src) {
-//           // 외부 스크립트의 경우, src 속성을 설정
-//           newScript.src = script.src;
-//         } else {
-//           // 인라인 스크립트의 경우, 내용을 복사
-//           newScript.textContent = script.textContent;
-//         }
-
-//         document.body.appendChild(newScript);
-//       });
-//     })
-//     .catch((error) => console.error("Error loading the HTML content:", error));
-// }
-
-// function lightMake() {
-//   // 이미지 요소를 선택
-//   var lightImage = document.getElementById("lightImage");
-
-//   // 이미지를 body의 직계 자식으로 이동
-//   document.body.appendChild(lightImage);
-
-//   // GSAP 애니메이션 실행
-//   gsap.to("#lightImage", {
-//     duration: 1, // 1초 동안 애니메이션
-//     width: "90vw", // 이미지 너비를 화면 너비의 90%로 설정
-//     top: "50%", // 상단에서 50% 위치
-//     left: "50%", // 왼쪽에서 50% 위치
-//     xPercent: -50, // x축 기준 -50% 만큼 이동하여 중앙 정렬
-//     yPercent: -50, // y축 기준 -50% 만큼 이동하여 중앙 정렬
-//     position: "fixed", // 고정된 위치
-//     ease: "power1.out", // 부드러운 움직임을 위한 이징 함수
-//     onComplete: function () {
-//       const treeImage = document.getElementById("lightImage");
-//       treeImage.style.display = "none"; // treeImage를 안 보이게 설정
-
-//       const overlay = document.getElementById("overlay");
-//       overlay.style.display = "block"; // 오버레이 표시
-
-//       lightLoadAndExecuteScripts(); // 그 후 HTML 내용을 로드
-//     },
-//   });
-// }
-
-// function lightLoadAndExecuteScripts() {
-//   fetch("light.html")
-//     .then((response) => response.text())
-//     .then((html) => {
-//       const contentArea = document.getElementById("contentArea");
-//       contentArea.innerHTML = html;
-//       contentArea.style.display = "block"; // 내용을 불러온 후 보이도록 설정
-
-//       // 스크립트 태그 찾기
-//       const scripts = contentArea.querySelectorAll("script");
-//       scripts.forEach((script) => {
-//         const newScript = document.createElement("script");
-
-//         if (script.src) {
-//           // 외부 스크립트의 경우, src 속성을 설정
-//           newScript.src = script.src;
-//         } else {
-//           // 인라인 스크립트의 경우, 내용을 복사
-//           newScript.textContent = script.textContent;
-//         }
-
-//         document.body.appendChild(newScript);
-//       });
-//     })
-//     .catch((error) => console.error("Error loading the HTML content:", error));
-// }
-
-// function waterMake() {
-//   // 이미지 요소를 선택
-//   var waterImage = document.getElementById("waterImage");
-
-//   // 이미지를 body의 직계 자식으로 이동
-//   document.body.appendChild(waterImage);
-
-//   // GSAP 애니메이션 실행
-//   gsap.to("#waterImage", {
-//     duration: 1, // 1초 동안 애니메이션
-//     width: "90vw", // 이미지 너비를 화면 너비의 90%로 설정
-//     top: "50%", // 상단에서 50% 위치
-//     left: "50%", // 왼쪽에서 50% 위치
-//     xPercent: -50, // x축 기준 -50% 만큼 이동하여 중앙 정렬
-//     yPercent: -50, // y축 기준 -50% 만큼 이동하여 중앙 정렬
-//     position: "fixed", // 고정된 위치
-//     ease: "power1.out", // 부드러운 움직임을 위한 이징 함수
-//     onComplete: function () {
-//       const treeImage = document.getElementById("waterImage");
-//       treeImage.style.display = "none"; // treeImage를 안 보이게 설정
-
-//       const overlay = document.getElementById("overlay");
-//       overlay.style.display = "block"; // 오버레이 표시
-
-//       waterLoadAndExecuteScripts(); // 그 후 HTML 내용을 로드
-//     },
-//   });
-// }
-
-// function waterLoadAndExecuteScripts() {
-//   fetch("test.html")
-//     .then((response) => response.text())
-//     .then((html) => {
-//       const contentArea = document.getElementById("contentArea");
-//       contentArea.innerHTML = html;
-//       contentArea.style.display = "block"; // 내용을 불러온 후 보이도록 설정
-
-//       // 스크립트 태그 찾기
-//       const scripts = contentArea.querySelectorAll("script");
-//       scripts.forEach((script) => {
-//         const newScript = document.createElement("script");
-
-//         if (script.src) {
-//           // 외부 스크립트의 경우, src 속성을 설정
-//           newScript.src = script.src;
-//         } else {
-//           // 인라인 스크립트의 경우, 내용을 복사
-//           newScript.textContent = script.textContent;
-//         }
-
-//         document.body.appendChild(newScript);
-//       });
-//     })
-//     .catch((error) => console.error("Error loading the HTML content:", error));
-// }
-
 //성공한 게임 표시
 function updateThumbnails(data) {
   const gameMapping = [
@@ -198,7 +28,21 @@ window.addEventListener("load", async () => {
   console.log(accessToken);
 
   if (!accessToken) {
-    console.error("accessToken이 없습니다.");
+    const $userName = document.getElementById("userName");
+    const $userModal = document.getElementById("userModal");
+
+    if ($userName) {
+      $userName.textContent = "로그인 해주세요!";
+    } else {
+      console.error('Element with ID "userName" not found.');
+    }
+
+    if ($userModal) {
+      $userModal.style.display = "none";
+    } else {
+      console.error('Element with ID "userModal" not found.');
+    }
+
     return;
   }
 
@@ -266,6 +110,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const userInfoContainer = document.querySelector(".user-info-container");
   const userModal = document.getElementById("userModal");
 
+  const accessToken = localStorage.getItem("accessToken");
+
+  // accessToken이 없는 경우
+  if (!accessToken) {
+    userInfoContainer.addEventListener("click", () => {
+      window.location.href = "/login";
+    });
+    return;
+  }
+
   // 모달창을 토글하는 함수
   function toggleModal() {
     if (userModal.style.display === "block") {
@@ -300,40 +154,46 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // '마이페이지' 버튼 클릭 이벤트 처리
-  document.getElementById("myPageBtn").addEventListener("click", () => {
-    // window.location.href = '/mypage'; // 마이페이지로 이동
-    alert("마이페이지는 구현 준비 중입니다!");
-  });
+  const myPageBtn = document.getElementById("myPageBtn");
+  if (myPageBtn) {
+    myPageBtn.addEventListener("click", () => {
+      // window.location.href = '/mypage'; // 마이페이지로 이동
+      alert("마이페이지는 구현 준비 중입니다!");
+    });
+  }
 
   // '로그아웃' 버튼 클릭 이벤트 처리
-  document.getElementById("logoutBtn").addEventListener("click", async () => {
-    const accessToken = localStorage.getItem("accessToken");
+  const logoutBtn = document.getElementById("logoutBtn");
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", async () => {
+      const accessToken = localStorage.getItem("accessToken");
 
-    if (!accessToken) {
-      alert("이미 로그아웃 상태입니다.");
-      window.location.href = "/login";
-      return;
-    }
-
-    try {
-      const response = await fetch("http://localhost:4000/user/logout", {
-        method: "POST",
-        headers: {
-          Authorization: "Bearer " + accessToken,
-        },
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data.message);
-
-        localStorage.removeItem("accessToken");
+      if (!accessToken) {
+        alert("이미 로그아웃 상태입니다.");
         window.location.href = "/login";
-      } else {
-        console.error("로그아웃 실패:", response.statusText);
+        return;
       }
-    } catch (error) {
-      console.error("로그아웃 중 오류 발생:", error);
-    }
-  });
+
+      try {
+        const response = await fetch("http://localhost:4000/user/logout", {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + accessToken,
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          console.log(data.message);
+
+          localStorage.removeItem("accessToken");
+          window.location.href = "/login";
+        } else {
+          console.error("로그아웃 실패:", response.statusText);
+        }
+      } catch (error) {
+        console.error("로그아웃 중 오류 발생:", error);
+      }
+    });
+  }
 });
