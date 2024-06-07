@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "TTLaundryGothicB";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/TTLaundryGothicB.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
 @keyframes slideDown {
     0% {
       transform: translateY(-100%);
@@ -7,21 +14,22 @@
       transform: translateY(0);
       opacity: 1;
     }
-  }
+}
 
-  img {
-    position: absolute;
-    top: 0;
-    left: 25%;
-    z-index: 10000;
-    animation: slideDown 1s ease-in-out;
-  }
+img {
+  position: absolute;
+  top: 0;
+  left: 25%;
+  z-index: 10000;
+  animation: slideDown 1s ease-in-out;
+}
 
 body {
-    margin: 0;
-    overflow: hidden;
+  margin: 0;
+  overflow: hidden;
     
 }
+
 @keyframes slideDown {
   0% {
     transform: translateY(-100%);
@@ -32,7 +40,6 @@ body {
     opacity: 1;
   }
 }
-
 
 img {
   position: absolute;
@@ -54,18 +61,18 @@ img {
     
     position: relative;
     
-    
+    overflow: hidden;
 
     transition: opacity 0.3s ease;
 }
 .bg{
-  background-color: rgb(233, 209, 165);
+  background-color: #E0C288;
   width: 100vw;
   height: 100vh;
   
 }
 .floor{
-  background-color: #b67641;
+  background-color: #CCA862;
   position: absolute;
   
   top: 650px;
@@ -83,7 +90,7 @@ img {
     
     
     position: absolute;
-    left: 350px;
+    left: 330px;
     top: 250px;
     
 }
@@ -95,7 +102,7 @@ img {
     width: 730px;
 
     position: absolute;
-    left: 310px;
+    left: 290px;
     top: 220px;
 }
 
@@ -104,8 +111,8 @@ img {
   /*margin-left: 200px;
   margin-top: 217px;*/
   top: 217px;
-  left: 330px;
-  width: 330px;
+  left: 310px;
+  width: 630px;
   height: 360px;
   max-width: 630px; /* 최대 너비 설정 */
   background-image: url(./images/curtain.svg);
@@ -121,7 +128,7 @@ img {
 
 .switch{
   position: absolute;
-  left: 1050px;
+  left: 150px;
   top: 350px;
 }
 .opacity{
@@ -153,7 +160,66 @@ img {
   width: 160px;
   height: 160px;
   top: 600px;
-  left: 1000px;
+  right: 100px;
+}
+
+.guide1{
+  position: absolute;
+  font-family: "TTLaundryGothicB", sans-serif;
+  left: 40px;
+  top: 300px;
+  border: #000 solid 1px;
+  padding: 5px;
+  border-radius: 15px 15px 0px 15px;
+}
+.guide2{
+  position: absolute;
+  font-family: "TTLaundryGothicB", sans-serif;
+  left: 700px;
+  top: 590px;
+  border: #000 solid 1px;
+  padding: 5px;
+  border-radius: 0px 15px 15px 15px;
 }
 
 
+
+#missionClear{
+  position: fixed; /* 고정 위치 */
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1);  /*반투명 검은색 배경 */
+  z-index: 100; /* 다른 요소들 위에 오도록 설정 */
+}
+#mission{
+  position: fixed;
+  display: none;
+  top: 20%;
+  left: 33%;
+  z-index: 11000; /* 다른 요소들 위에 오도록 설정 */
+}
+#missionBtn{
+  position: fixed;
+  display: none;
+  top: 70%;
+  left: 37%;
+  z-index: 20000; /* 다른 요소들 위에 오도록 설정 */
+} 
+
+#success-image1 {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+}
+#success-image2 {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-14%);
+  width: 400px;
+}
