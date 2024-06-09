@@ -1,11 +1,14 @@
 
 
 .surface-pro-812 .rectangle-14 {
-  background-image: url("images/배경.svg") no-repeat center fixed;
+  background-image: url("images/배경.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
   background-size: cover;
-  position: 100vh;
+  height: 100vh; 
+  position: relative; 
 }
-
 
 .container {
   text-align: center;
